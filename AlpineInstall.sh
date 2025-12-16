@@ -31,14 +31,14 @@ cat > ./$SETUP_SCRIPT << EOF
 echo "updating packages"
 apk --update-cache upgrade
 
-echo 'PS1='\''\[\e[91m\]\u\[\e[0m\]@\[\e[95m\]\h\[\e[0m\]:\[\e[94m\]\w\n\[\e[97m\]\\$\[\e[0m\] '\''' > .profile
+echo 'PS1='\''\n\[\e[91m\]\u\[\e[0m\]@\[\e[95m\]\h\[\e[0m\]:\[\e[94m\]\w\n\[\e[97m\]\\$\[\e[0m\] '\''' > .profile
 echo "alias ll='ls -la'" >> .profile
 
 echo
 read -p "Enter user name: " USER_NAME
 if [[ -n "\$USER_NAME" ]]; then
     adduser \$USER_NAME
-    echo 'PS1='\''\[\e[92m\]\u\[\e[0m\]@\[\e[95m\]\h\[\e[0m\]:\[\e[94m\]\w\n\[\e[97m\]\\$\[\e[0m\] '\''' > /home/\$USER_NAME/.profile
+    echo 'PS1='\''\n\[\e[92m\]\u\[\e[0m\]@\[\e[95m\]\h\[\e[0m\]:\[\e[94m\]\w\n\[\e[97m\]\\$\[\e[0m\] '\''' > /home/\$USER_NAME/.profile
     echo "alias ll='ls -la'" >> /home/\$USER_NAME/.profile
     chown \$USER_NAME /home/\$USER_NAME/.profile
 
